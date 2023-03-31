@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
     AppComponent,
     NavigationComponent,
     ProductFormComponent,
-    ProductListComponent
+    ProductListComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,
