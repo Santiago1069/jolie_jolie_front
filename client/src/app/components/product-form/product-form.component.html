@@ -1,0 +1,79 @@
+<br><br><br>
+<div class="row">
+    <div class="col-md-4 offset-md-2">
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre_del_producto"><strong>Nombre del producto:</strong></label>
+                            <input type="text" class="form-control" id="nombre_producto" name="nombre_producto"
+                                [(ngModel)]="product.nombre_producto" autocomplete="off">
+                        </div>
+                        <div class="form-group"><br>
+                            <label for="nombre_texto"><strong>Color:</strong></label>
+                            <input type="text" class="form-control" id="color" name="color" [(ngModel)]="product.color"
+                                autocomplete="off">
+                        </div>
+                        <div class="form-group"><br>
+                            <label for="nombre_precio"><strong>Precio:</strong></label>
+                            <input type="number" class="form-control" id="precio" name="precio"
+                                [(ngModel)]="product.precio" autocomplete="off">
+                        </div>
+                        <div class="form-group"><br>
+                            <label for="nombre_imagen"><strong>Imagen:</strong></label>
+                            <input type="text" class="form-control" id="imagen" name="imagen"
+                                [(ngModel)]="product.imagen" autocomplete="off">
+                        </div>
+                        <div class="form-group"><br>
+                            <label for="nombre_cantidad"><strong>Cantidad:</strong></label>
+                            <input type="number" class="form-control" id="cantidad" name="cantidad"
+                                [(ngModel)]="product.cantidad" autocomplete="off">
+                        </div>
+                        <div class="form-group"><br>
+                            <label for="nombre_categoria"><strong>Categorias:</strong></label>
+                            <select class="form-select" aria-label="select">
+                                <option selected>Seleccione una opcion</option>
+                                <option value="1">Gorros</option>
+                            </select>
+                        </div>
+                        <div class="form-group"><br>
+                            <label for="nombre_descripcion_producto"><strong>Descripcion del producto:</strong></label>
+                            <textarea style="overflow:auto" type="text" class="form-control" id="descripcion_producto"
+                                name="descripcion_producto" [(ngModel)]="product.descripcion_producto" rows="4"
+                                autocomplete="off"></textarea>
+                        </div>
+                        <br>
+                        <div class="form-group d-flex justify-content-end">
+                            <button type="submit" class="btn btn-success" (click)="edit ? updateProduct() : saveProduct()">Guardar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-md-4">
+        <div class="card card-body text-center">
+            <img class="card-img-top"
+                [src]="product.imagen == '' ? '/assets/img/imagen_no_disponible.jpg' : product.imagen"
+                alt="imagen del producto" width="346.17" height="346.17">
+            <div class="card-body">
+                <h5 class="card-title"><strong>{{product.nombre_producto == '' ? 'No se encuentra disponible el nombre
+                        del producto' : product.nombre_producto}}</strong></h5>
+                <p class="card-text"> <strong>Descripcion: </strong>{{product.descripcion_producto == '' ? 'No se
+                    encuentra disponible la descripcion del producto' : product.descripcion_producto}} </p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Precio: </strong> {{product.precio == null ? 'No se encuentra
+                    disponible el precio del producto' : '$' + product.precio + ' Unidad'}}</li>
+                <li class="list-group-item"><strong>Color: </strong> {{product.color == '' ? 'No se encuentra disponible
+                    el color del producto' : product.color}}</li>
+                <li class="list-group-item"><strong>Cantidad: </strong> {{product.cantidad == null ? 'No se encuentra
+                    disponible la cantidad del producto' : product.cantidad + ' Disponibles'}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
