@@ -21,15 +21,15 @@
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="nombre_email"><strong>Email:</strong></label>
                                     <input type="email" id="email" name="email" class="form-control form-control-lg"
-                                        autocomplete="off" required />
+                                        autocomplete="off" required [(ngModel)]="loginObjeto.correo" />
                                     <div class="invalid-feedback">
-                                        Por favor, ingresa con el correo electronico con el que se registro.
+                                        Por favor, ingresa el correo electronico con el que se registro.
                                     </div>
                                 </div>
                                 <div class="form-outline mb-4">
                                     <label class="form-label"
                                         for="nombre_contrasena"><strong>Contraseña:</strong></label>
-                                    <input type="password" id="contrasena" name="contrasena"
+                                    <input type="password" id="contrasena" name="contrasena" [(ngModel)]="loginObjeto.password"
                                         class="form-control form-control-lg" autocomplete="off" required />
                                     <div class="invalid-feedback">
                                         Por favor, ingresa la contraseña con la que se registro.
@@ -44,16 +44,29 @@
 
                                 </div>
                                 <div class="d-grid gap-2 col-6 mx-auto">
-                                    <button class="btn btn-primary" type="submit">Iniciar Sesion</button>
+                                    <button class="btn btn-primary" (click)="login()" type="submit">Iniciar Sesion</button>
                                 </div>
                             </form>
                         </div>
                     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
                     <div id="menu1" class="container tab-pane fade"><br>
                         <form class="row g-3 needs-validation" novalidate>
                             <div class="">
                                 <label for="nombre_nombre" class="form-label"><strong>Nombre completo:</strong></label>
-                                <input type="text" class="form-control" id="nombre_completo" name="nombre_completo"
+                                <input type="text" [(ngModel)]="user.nombre" class="form-control" id="nombre_completo" name="nombre_completo"
                                     autocomplete="off" required>
                                 <div class="invalid-feedback">
                                     Por favor, ingresa tu nombre completo.
@@ -71,9 +84,8 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label for="nombre_numero_documento" class="form-label"><strong>Numero de
-                                        documento:</strong></label>
-                                <input type="text" class="form-control" id="numero_documento" name="numero_documento"
+                                <label for="nombre_numero_documento" class="form-label"><strong>Numero de documento:</strong></label>
+                                <input type="text" [(ngModel)]="user.identificacion" class="form-control" id="numero_documento" name="numero_documento"
                                     autocomplete="off" required>
                                 <div class="invalid-feedback">
                                     Por favor, ingresa tu numero de documento.
@@ -83,7 +95,7 @@
                                 <label for="nombre_email" class="form-label"><strong>Email:</strong></label>
                                 <div class="input-group has-validation">
                                     <span class="input-group-text" id="nombre_arroa">@</span>
-                                    <input type="email" class="form-control" id="email" name="email"
+                                    <input type="email" [(ngModel)]="user.correo"  class="form-control" id="email" name="email"
                                         aria-describedby="nombre_arroa" autocomplete="off" required>
                                     <div class="invalid-feedback">
                                         Por favor, ingresa tu correo electronico.
@@ -92,7 +104,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="nombre_contrasena" class="form-label"><strong>Contraseña:</strong></label>
-                                <input type="password" class="form-control" id="contrasena" name="contrasena"
+                                <input type="password" [(ngModel)]="user.password" class="form-control" id="contrasena" name="contrasena"
                                     autocomplete="off" required>
                                 <div class="invalid-feedback">
                                     Por favor, ingresa una contraseña.
@@ -100,25 +112,24 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="nombre_celular" class="form-label"><strong>Celular:</strong></label>
-                                <input type="text" class="form-control" id="celular" name="celular" required>
+                                <input type="text" [(ngModel)]="user.celular" class="form-control" id="celular" name="celular" autocomplete="off" required>
                                 <div class="invalid-feedback">
-                                    Please provide a valid zip.
+                                    Por favor, ingresa tu numero de celular.
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-check"><br>
-                                    <input class="form-check-input" type="checkbox" value="" id="check" name="check"
-                                        required>
+                                    <input class="form-check-input" type="checkbox" value="" id="check" name="check" required>
                                     <label class="form-check-label" for="descripcion_terminos">
                                         Acepta los terminos y condiciones, dar clic <a href="">aqui</a> para leer los.
                                     </label>
                                     <div class="invalid-feedback">
-                                        You must agree before submitting.
+                                        Por favor, Acepta los terminos y condiciones.
                                     </div>
                                 </div>
                             </div>
                             <div class="d-grid gap-2 col-6 mx-auto">
-                                <button class="btn btn-primary" type="submit">Registrar se</button>
+                                <button class="btn btn-primary" (click)="createUser()" type="submit">Registrar se</button>
                             </div>
                         </form>
                     </div>
