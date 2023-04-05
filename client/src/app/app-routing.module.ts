@@ -7,8 +7,8 @@ import { AuthenticationComponent } from './components/authentication/authenticat
 const routes: Routes = [
   
   {
-    path: 'home',
-    redirectTo: 'products',
+    path: '',
+    redirectTo: 'loginUser',
     pathMatch: 'full'
   },
   {
@@ -24,7 +24,11 @@ const routes: Routes = [
     component: ProductFormComponent
   },
   {
-    path: 'authentication',
+    path: 'newUser',
+    component: AuthenticationComponent
+  },
+  {
+    path: 'loginUser',
     component: AuthenticationComponent
   }
 ];
