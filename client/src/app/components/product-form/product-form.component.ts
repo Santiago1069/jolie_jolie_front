@@ -54,11 +54,11 @@ export class ProductFormComponent implements OnInit {
       res => {
         console.log(res);
         Swal.fire(
-          'Muy bien',
-          'El producto ha sido guardado!',
+          'Guardado',
+          'El producto ha sido guardado correctamente!',
           'success'
         )
-        this.router.navigate(['/list-products']);
+        this.router.navigate(['/products']);
       },
       err => console.log(err)
     )
@@ -67,10 +67,10 @@ export class ProductFormComponent implements OnInit {
   updateProduct(){
     this.productService.updateProduct(this.product.id_producto, this.product).subscribe(
       res => {
-        this.router.navigate(['/list-products']);
+        this.router.navigate(['/products']);
         Swal.fire(
-          'Muy bien',
-          'El producto ha sido actualizado!',
+          'Actualizado',
+          'El producto ha sido actualizado correctamente!',
           'success'
         )
       },
