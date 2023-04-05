@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +9,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { AddTokenInterceptor } from './services/add-token.interceptor';
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import { AuthenticationComponent } from './components/authentication/authenticat
     NavigationComponent,
     ProductFormComponent,
     ProductListComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +29,7 @@ import { AuthenticationComponent } from './components/authentication/authenticat
     FormsModule
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true},
     ProductListComponent
   ],
   bootstrap: [AppComponent]
