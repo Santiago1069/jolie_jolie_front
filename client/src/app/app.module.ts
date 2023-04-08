@@ -6,21 +6,18 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { ProductFormComponent } from './components/product-form/product-form.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductListComponent } from './components/admin/product-list/product-list.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
-import { UserListComponent } from './components/user-list/user-list.component';
 import { AddTokenInterceptor } from './services/add-token.interceptor';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    ProductFormComponent,
-    ProductListComponent,
-    AuthenticationComponent,
-    UserListComponent
+    AuthenticationComponent
+
   ],
   imports: [
     BrowserModule,

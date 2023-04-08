@@ -1,0 +1,88 @@
+<section class="vh-100">
+    <div class="container py-5 h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+            <div class="col-xl-6">
+                <img src="https://img.freepik.com/vector-gratis/concepto-isometrico-desarrollo-interfaz-usuario-mujer-joven-que-crea-diseno-personalizado-ilustracion-vector-aplicacion-movil_1284-72341.jpg?w=1060&t=st=1680757636~exp=1680758236~hmac=c0f889c346c05c35a870477940b898543d1e4662c960ac4d519404705593b847"
+                    class="img-fluid" alt="Phone image">
+            </div>
+            <div class="col-xl-6">
+                <div class="tab-content">
+                    <form class="row g-3 needs-validation" novalidate>
+                        <div class="">
+                            <label for="nombre_nombre" class="form-label"><strong>Nombre completo:</strong></label>
+                            <input type="text" class="form-control" id="nombre_completo" name="nombre_completo"
+                                [(ngModel)]="user.nombre" autocomplete="off" required>
+                            <div class="invalid-feedback">
+                                Por favor, ingresa tu nombre completo.
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="nombre_tipo_documento" class="form-label"><strong>Tipo de
+                                    documento:</strong></label>
+                            <select class="form-select" id="tipo_documento" name="tipo_documento" required>
+                                <option selected disabled value="">Seleccione una opcion</option>
+                                <option>.</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Seleccione una opcion vailda.
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="nombre_numero_documento" class="form-label"><strong>Numero de
+                                    documento:</strong></label>
+                            <input type="text" class="form-control" id="numero_documento" name="numero_documento"
+                                [(ngModel)]="user.identificacion" autocomplete="off" required>
+                            <div class="invalid-feedback">
+                                Por favor, ingresa tu numero de documento.
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="nombre_email" class="form-label"><strong>Email:</strong></label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="nombre_arroa">@</span>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    [(ngModel)]="user.correo" aria-describedby="nombre_arroa" autocomplete="off"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Por favor, ingresa tu correo electronico.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="nombre_contrasena" class="form-label"><strong>Contraseña:</strong></label>
+                            <input type="password" class="form-control" id="contrasena" name="contrasena"
+                                [(ngModel)]="user.password" autocomplete="off" required>
+                            <div class="invalid-feedback">
+                                Por favor, ingresa una contraseña.
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="nombre_celular" class="form-label"><strong>Celular:</strong></label>
+                            <input type="text" class="form-control" id="celular" name="celular" autocomplete="off"
+                                [(ngModel)]="user.celular" required>
+                            <div class="invalid-feedback">
+                                Por favor, ingresa tu numero de celular.
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="nombre_tipo_documento" class="form-label"><strong>Perfil del
+                                    usuario:</strong></label>
+                            <select class="form-select" id="tipo_documento" name="tipo_documento" required>
+                                <option selected disabled value="">Seleccione una opcion</option>
+                                <option>.</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Seleccione una opcion vailda.
+                            </div>
+                        </div><br>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <button class="btn btn-primary" type="submit"
+                                (click)="edit ? updateProduct () : createUser()">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

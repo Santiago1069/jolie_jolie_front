@@ -1,22 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { Router, ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
 
-
-
 import { User } from 'src/app/models/User';
-import { AuthenticationService } from 'src/app/services/authentication.service';
-import { Login } from 'src/app/models/login';
-
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-authentication',
-  templateUrl: './authentication.component.html',
-  styleUrls: ['./authentication.component.css']
+  selector: 'app-user-form',
+  templateUrl: './user-form.component.html',
+  styleUrls: ['./user-form.component.css']
 })
-export class AuthenticationComponent implements OnInit {
+export class UserFormComponent implements OnInit {
 
   user: User = {
     identificacion: '',
@@ -28,18 +24,31 @@ export class AuthenticationComponent implements OnInit {
     id_tipo_documento_fk: 1
   }
 
-  loginObjeto: Login = {
-    correo: '',
-    password: ''
-  }
+  edit: boolean = false;
 
-
-  constructor(private authenticationService: AuthenticationService, private router: Router) { }
+  constructor(private userServices: UserService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.validacionDeCampos();
-
+    this.getOneUser();
   }
+
+
+  getOneUser(){
+    const params = this.activatedRoute.snapshot.params;
+    if(params["id"]){
+      this.userServices.getOneUser(params['id']).subscribe(
+        res => {
+          console.log('this.user')
+          console.log(this.user)
+          this.user = res;
+          this.edit = true;
+        },
+        err => console.log(err)
+      )
+    }
+  }
+
 
 
   createUser() {
@@ -47,17 +56,17 @@ export class AuthenticationComponent implements OnInit {
       return
     }
 
-    this.authenticationService.createUser(this.user).subscribe(
+    this.userServices.createUser(this.user).subscribe(
       res => {
         Swal.fire({
           title: 'Muy bien',
-          text: "El usuario '" + this.user.nombre + "' ha sido registrado correctamente!",
+          text: "El usuario '" + this.user.nombre + "' ha sido creado correctamente!",
           icon: 'success',
           confirmButtonColor: '#3085d6',
           confirmButtonText: 'Continuar'
         }).then((result) => {
           if (result.isConfirmed) {
-            location.reload();
+            this.router.navigate(['/users']);
           }
         })
       },
@@ -70,7 +79,7 @@ export class AuthenticationComponent implements OnInit {
           confirmButtonText: 'Continuar'
         }).then((result) => {
           if (result.isConfirmed) {
-            location.reload();
+            this.router.navigate(['/user/add']);
           }
         })
       }
@@ -78,44 +87,22 @@ export class AuthenticationComponent implements OnInit {
   }
 
 
-
-
-  login() {
-    if (this.loginObjeto.correo == '' || this.loginObjeto.password == '') {
-      return
-    }
-
-
-    this.authenticationService.login(this.loginObjeto).subscribe({
-      next: (token) => {
+  updateProduct(){
+    this.userServices.updateUser(this.user.identificacion, this.user).subscribe(
+      res => {
+        this.router.navigate(['/users']);
         Swal.fire(
-          'Muy bien',
-          'Inicio de sesion exitoso!!',
+          'Actualizado',
+          'El usuario ha sido actualizado correctamente!',
           'success'
         )
-        this.router.navigate(['/products']);
-        localStorage.setItem('token', token as string)
       },
-      error: (e: HttpErrorResponse) => {
-        if (e.error.msg) {
-          Swal.fire(
-            'Error',
-            e.error.msg,
-            'error'
-          )
-        } else {
-          Swal.fire(
-            'Error',
-            'Error con el servidor comuniquese con el administrador ',
-            'error'
-          )
-        }
-
-      }
-    }
+      err => console.log(err)
     )
-
   }
+
+
+
 
 
   validacionDeCampos() {

@@ -2,9 +2,8 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2'; 'sweetalert2';
 
-import { Categoria } from 'src/app/models/Categoria';
 import { Product } from 'src/app/models/Product';
-import { ProductService } from '../../services/product.service';
+import { ProductService } from '../../../services/product.service';
 
 @Component({
   selector: 'app-product-form',
