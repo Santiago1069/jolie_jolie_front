@@ -22,7 +22,7 @@ export class AddTokenInterceptor implements HttpInterceptor {
     const token = localStorage.getItem('token');
 
     if(token){
-      console.log('hola')
+      console.log('Token valido')
       request = request.clone({ setHeaders: { authorization: `Bearer ${token}`}})
     }
     
