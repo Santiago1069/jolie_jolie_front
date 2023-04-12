@@ -33,6 +33,15 @@ export class UserService {
   }
 
 
+  getProfiles(){
+    return this.http.get(`${this.API_URL}/profiles`)
+  }
+
+  getTipeDocument(){
+    return this.http.get(`${this.API_URL}/documents`)
+  }
+
+
 
 
 
