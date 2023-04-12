@@ -32,16 +32,24 @@
                         </div>
                         <div class="form-group"><br>
                             <label for="nombre_categoria"><strong>Categorias:</strong></label>
-                            <select class="form-select" aria-label="select">
-                                <option selected>Seleccione una opcion</option>
-                                <option value="1">Gorros</option>
+                            <select class="form-select" id="id_categoria" name="id_categoria" [(ngModel)]="product.id_categoria">
+                                <option selected value="">Seleccione una opcion</option>
+                                <option *ngFor="let categoria of categories" [value]="categoria.id_categoria">{{categoria.categoria_descripcion}}</option>
                             </select>
                         </div>
                         <div class="form-group"><br>
                             <label for="nombre_descripcion_producto"><strong>Descripcion del producto:</strong></label>
                             <textarea style="overflow:auto" type="text" class="form-control" id="descripcion_producto"
-                                name="descripcion_producto" [(ngModel)]="product.descripcion_producto" rows="4"
+                                name="descripcion_producto" [(ngModel)]="product.descripcion_producto" rows="2"
                                 autocomplete="off"></textarea>
+                        </div>
+                        <div class="form-group"><br>
+                            <label for="nombre_categoria"><strong>Estado:</strong></label>
+                            <select class="form-select" id="id_categoria" name="id_categoria" [(ngModel)]="product.estado">
+                                <option selected value="">Seleccione una opcion</option>
+                                <option selected value="Activo">Activo</option>
+                                <option selected value="Inactivo">Inactivo</option>
+                            </select>
                         </div>
                         <br>
                         <div class="form-group d-flex justify-content-end">

@@ -20,11 +20,11 @@ export class ProductFormComponent implements OnInit {
     imagen: '',
     descripcion_producto: '',
     cantidad: 0,
-    estado: 1,
-    id_categoria: 1
+    estado: 0,
+    id_categoria: 0
   }
 
-
+  categories: any = [];
 
   edit: boolean = false;
 
@@ -32,6 +32,7 @@ export class ProductFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.getOneProduct();
+    this.getCategories();
   }
 
   getOneProduct(){
@@ -45,6 +46,17 @@ export class ProductFormComponent implements OnInit {
         err => console.log(err)
       )
     }
+  }
+
+  getCategories() {
+    this.productService.getCategories().subscribe(
+      res => {
+        this.categories = res;
+      },
+      err => {
+        console.log(err)
+      }
+    );
   }
 
 
