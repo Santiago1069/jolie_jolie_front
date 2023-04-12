@@ -20,17 +20,23 @@ export class UserFormComponent implements OnInit {
     correo: '',
     password: '',
     celular: 0,
-    id_perfiles_fk: 2,
-    id_tipo_documento_fk: 1
+    id_perfiles_fk: 0,
+    id_tipo_documento_fk: 0
   }
 
   edit: boolean = false;
+
+  profiles: any = [];
+
+  documents: any = [];
 
   constructor(private userServices: UserService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.validacionDeCampos();
     this.getOneUser();
+    this.getProfiles();
+    this.getTipeDocument();
   }
 
 
@@ -102,6 +108,28 @@ export class UserFormComponent implements OnInit {
   }
 
 
+  getProfiles(){
+    this.userServices.getProfiles().subscribe(
+      res => {
+        this.profiles = res;
+      },
+      err => {
+        console.log(err)
+      }
+    )
+  }
+
+
+  getTipeDocument(){
+    this.userServices.getTipeDocument().subscribe(
+      res => {
+        this.documents = res;
+      },
+      err => {
+        console.log(err)
+      }
+    )
+  }
 
 
 
