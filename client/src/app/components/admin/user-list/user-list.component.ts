@@ -13,6 +13,10 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserListComponent implements OnInit {
 
+  searchText: any;
+
+  public page!: number;
+
   users: any = [];
 
   constructor(private userService: UserService) { }
