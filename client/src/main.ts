@@ -1,6 +1,7 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
+import{ ClientsModule } from './app/components/clients/clients.module'
 import{ AdminModule } from './app/components/admin/admin.module'
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
