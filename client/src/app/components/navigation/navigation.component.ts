@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Product } from 'src/app/models/Product';
 import Swal from 'sweetalert2';
 
 
@@ -9,6 +10,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
+
+  productsToCart: any = [];
 
   constructor(private router: Router) { }
 
@@ -24,6 +27,12 @@ export class NavigationComponent implements OnInit {
     )
     localStorage.removeItem('token');
     this.router.navigate(['/loginUser'])
+  }
+
+  saveProductCart(product: Product, cantidad: number){
+
+    
+
   }
 
 }
