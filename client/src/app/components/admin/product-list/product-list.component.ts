@@ -13,6 +13,10 @@ export class ProductListComponent implements OnInit {
 
   products: any = [];
 
+  public page!: number;
+
+  searchText: any;
+
   constructor(private productService: ProductService) { }
 
   ngOnInit() {

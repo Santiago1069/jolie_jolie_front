@@ -1,7 +1,16 @@
 <br><br><br>
 
 <div class="row">
-    <div class="col-md-4" *ngFor="let product of products">
+    <div class="container">
+        <div class="d-flex justify-content-between">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="text" placeholder="Buscar" aria-label="Search" name="search" autocomplete="off" [(ngModel)]="searchText">
+            </form>
+            <button type="button" class="btn btn-outline-success" routerLink="/product/add" >Agregar producto</button>
+        </div>
+    </div>
+    <br><br>
+    <div class="col-md-4" *ngFor="let product of products | paginate: {itemsPerPage: 3, currentPage: page} | filter:searchText">
         <div class="card" width="350" height="700">
             <img class="card-img-top" [src]="product.imagen" alt="imagen del producto" width="346.17" height="346.17">
             <div class="card-body">
@@ -12,6 +21,7 @@
                 <li class="list-group-item"><strong>Precio: </strong> ${{product.precio}} Unidad</li>
                 <li class="list-group-item"><strong>Color: </strong> {{product.color}}</li>
                 <li class="list-group-item"><strong>Cantidad: </strong> {{product.cantidad}} disponibles</li>
+                <li class="list-group-item"><strong>Estado: </strong> {{product.estado}}</li>
             </ul>
             <div class="card-body d-flex justify-content-around">
                 <a [routerLink]="['/product/edit', product.id_producto]" class="btn btn-primary">Editar</a>
@@ -19,4 +29,8 @@
             </div>
         </div>
     </div>
+</div>
+<br>
+<div class="d-flex justify-content-center">
+    <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
 </div>
