@@ -32,4 +32,9 @@ export class ProductService {
   updateProduct(id: Number | string, updateProduct: Product) {
     return this.http.put(`${this.API_URL}/ManagementProduct/${id}`, updateProduct)
   }
+
+
+  getCategories(){
+    return this.http.get(`${this.API_URL}/categories`);
+  }
 }
