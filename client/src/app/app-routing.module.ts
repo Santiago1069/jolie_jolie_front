@@ -15,9 +15,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'products',
+    path: 'admin/products',
     component: ProductListComponent
   },
+
   {
     path: 'product/add',
     component: ProductFormComponent

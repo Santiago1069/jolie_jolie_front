@@ -69,7 +69,7 @@ export class ProductFormComponent implements OnInit {
           'El producto ha sido guardado correctamente!',
           'success'
         )
-        this.router.navigate(['/products']);
+        this.router.navigate(['/admin/products']);
       },
       err => console.log(err)
     )
@@ -78,7 +78,7 @@ export class ProductFormComponent implements OnInit {
   updateProduct(){
     this.productService.updateProduct(this.product.id_producto, this.product).subscribe(
       res => {
-        this.router.navigate(['/products']);
+        this.router.navigate(['/admin/products']);
         Swal.fire(
           'Actualizado',
           'El producto ha sido actualizado correctamente!',

@@ -25,4 +25,13 @@ export class AuthenticationService {
     return this.http.post<String>(`${this.API_URL}/loginUser`, login);
   }
 
+  profile(){
+    return this.http.get(`${this.API_URL}/profile`)
+  }
+
+
+  getTipeDocument(){
+    return this.http.get(`${this.API_URL}/documents`)
+  }
+
 }

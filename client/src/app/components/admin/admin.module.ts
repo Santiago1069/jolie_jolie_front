@@ -13,6 +13,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { AppComponent } from 'src/app/app.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 
 
@@ -22,7 +23,8 @@ import { AppComponent } from 'src/app/app.component';
     ProductFormComponent,
     ProductListComponent,
     UserFormComponent,
-    UserListComponent
+    UserListComponent,
+    NavigationComponent
   ],
   imports: [
     CommonModule,

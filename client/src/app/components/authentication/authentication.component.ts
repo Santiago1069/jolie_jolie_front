@@ -4,8 +4,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
 
-
-
 import { User } from 'src/app/models/User';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Login } from 'src/app/models/login';
@@ -25,7 +23,7 @@ export class AuthenticationComponent implements OnInit {
     password: '',
     celular: 0,
     id_perfiles_fk: 2,
-    id_tipo_documento_fk: 1
+    id_tipo_documento_fk: 0
   }
 
   loginObjeto: Login = {
@@ -33,12 +31,26 @@ export class AuthenticationComponent implements OnInit {
     password: ''
   }
 
+  documents: any = [];
+
 
   constructor(private authenticationService: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
     this.validacionDeCampos();
+    this.getTipeDocument();
+  }
 
+
+  getTipeDocument(){
+    this.authenticationService.getTipeDocument().subscribe(
+      res => {
+        this.documents = res;
+      },
+      err => {
+        console.log(err)
+      }
+    )
   }
 
 
@@ -93,8 +105,11 @@ export class AuthenticationComponent implements OnInit {
           'Inicio de sesion exitoso!!',
           'success'
         )
-        this.router.navigate(['/products']);
+
         localStorage.setItem('token', token as string)
+
+        this.router.navigate(['/admin/products']);
+
       },
       error: (e: HttpErrorResponse) => {
         if (e.error.msg) {

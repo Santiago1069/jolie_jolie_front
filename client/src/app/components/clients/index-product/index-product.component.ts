@@ -25,7 +25,7 @@ export class IndexProductComponent implements OnInit {
   }
 
   getProducts() {
-    this.productService.getAllProducts().subscribe(
+    this.productService.allProductsActivate().subscribe(
       res => {
         this.products = res;
         console.log(res);

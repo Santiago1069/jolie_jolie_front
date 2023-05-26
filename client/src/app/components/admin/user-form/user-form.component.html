@@ -67,9 +67,9 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="nombre_tipo_documento" class="form-label"><strong>Perfil del
+                            <label for="nombre_perfil_usuario" class="form-label"><strong>Perfil del
                                     usuario:</strong></label>
-                            <select class="form-select" id="tipo_documento" name="tipo_documento" required
+                            <select class="form-select" id="perfil" name="perfil" required
                                 [(ngModel)]="user.id_perfiles_fk">
                                 <option selected value="">Seleccione una opcion</option>
                                 <option *ngFor="let profile of profiles" [value]="profile.id_perfiles">

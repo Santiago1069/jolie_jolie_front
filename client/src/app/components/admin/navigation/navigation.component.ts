@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Product } from 'src/app/models/Product';
-import { AuthenticationService } from 'src/app/services/authentication.service';
 import Swal from 'sweetalert2';
 
 
@@ -12,26 +10,9 @@ import Swal from 'sweetalert2';
 })
 export class NavigationComponent implements OnInit {
 
-  productsToCart: any = [];
-
-  users: any = [];
-
-  constructor(private router: Router, private authenticationService: AuthenticationService) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.getUser();
-
-  }
-
-  getUser(){
-    this.authenticationService.profile().subscribe(
-      res => {
-        this.users = res;
-      },
-      err => {
-        console.log(err)
-      }
-    )
   }
 
   cerrarSesion(){
@@ -42,11 +23,6 @@ export class NavigationComponent implements OnInit {
     )
     localStorage.removeItem('token');
     this.router.navigate(['/loginUser'])
-  }
-
-  saveProductCart(product: Product, cantidad: number){
-
-
   }
 
 }
