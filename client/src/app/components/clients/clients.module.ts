@@ -6,12 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination'
 import { AppComponent } from 'src/app/app.component';
+import { CompradorNavigationComponent } from './navigation/navigation.component';
 
 
 
 @NgModule({
   declarations: [
-    IndexProductComponent
+    IndexProductComponent,
+    CompradorNavigationComponent
 
   ],
   imports: [

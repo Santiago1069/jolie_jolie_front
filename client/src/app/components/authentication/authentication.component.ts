@@ -33,6 +33,8 @@ export class AuthenticationComponent implements OnInit {
 
   documents: any = [];
 
+  users: any = [];
+
 
   constructor(private authenticationService: AuthenticationService, private router: Router) { }
 
@@ -42,7 +44,7 @@ export class AuthenticationComponent implements OnInit {
   }
 
 
-  getTipeDocument(){
+  getTipeDocument() {
     this.authenticationService.getTipeDocument().subscribe(
       res => {
         this.documents = res;
@@ -89,6 +91,25 @@ export class AuthenticationComponent implements OnInit {
     )
   }
 
+  getUser() {
+    this.authenticationService.profile().subscribe(
+      res => {
+        this.users = res;
+        console.log('this.users.id_perfiles_fk');
+        console.log(this.users.id_perfiles_fk);
+        
+        if (this.users.id_perfiles_fk === 1) {
+          this.router.navigate(['/admin/products']);
+        } else {
+          this.router.navigate(['/index-product']);
+        }
+
+      },
+      err => {
+        console.log(err)
+      }
+    )
+  }
 
 
 
@@ -108,7 +129,7 @@ export class AuthenticationComponent implements OnInit {
 
         localStorage.setItem('token', token as string)
 
-        this.router.navigate(['/admin/products']);
+        this.getUser();
 
       },
       error: (e: HttpErrorResponse) => {

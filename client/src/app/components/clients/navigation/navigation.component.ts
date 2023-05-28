@@ -6,11 +6,11 @@ import Swal from 'sweetalert2';
 
 
 @Component({
-  selector: 'app-navigation',
+  selector: 'comprador-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
 })
-export class NavigationComponent implements OnInit {
+export class CompradorNavigationComponent implements OnInit {
 
   productsToCart: any = [];
 

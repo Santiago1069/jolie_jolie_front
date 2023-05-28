@@ -7,7 +7,6 @@ import { NgxPaginationModule } from 'ngx-pagination'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
 import { ProductListComponent } from './components/admin/product-list/product-list.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { AddTokenInterceptor } from './services/add-token.interceptor';
@@ -17,7 +16,6 @@ import { AddTokenInterceptor } from './services/add-token.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
     AuthenticationComponent
 
   ],

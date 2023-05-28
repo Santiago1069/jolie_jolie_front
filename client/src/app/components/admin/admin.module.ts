@@ -13,7 +13,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { AppComponent } from 'src/app/app.component';
-import { NavigationComponent } from './navigation/navigation.component';
+import { AdminNavigationComponent } from './navigation/navigation.component';
+import { PedidosListComponent } from './pedidos-list/pedidos-list.component';
 
 
 
@@ -24,7 +25,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     ProductListComponent,
     UserFormComponent,
     UserListComponent,
-    NavigationComponent
+    AdminNavigationComponent,
+    PedidosListComponent
   ],
   imports: [
     CommonModule,

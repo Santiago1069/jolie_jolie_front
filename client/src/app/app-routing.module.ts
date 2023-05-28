@@ -6,6 +6,7 @@ import { AuthenticationComponent } from './components/authentication/authenticat
 import { UserListComponent } from './components/admin/user-list/user-list.component';
 import { UserFormComponent } from './components/admin/user-form/user-form.component';
 import { IndexProductComponent } from './components/clients/index-product/index-product.component';
+import { PedidosListComponent } from './components/admin/pedidos-list/pedidos-list.component';
 
 const routes: Routes = [
   
@@ -50,6 +51,10 @@ const routes: Routes = [
   {
     path: 'index-product',
     component: IndexProductComponent
+  },
+  {
+    path: 'pedidos',
+    component: PedidosListComponent
   }
 ];
 
