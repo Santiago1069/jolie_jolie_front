@@ -7,6 +7,7 @@ import { UserListComponent } from './components/admin/user-list/user-list.compon
 import { UserFormComponent } from './components/admin/user-form/user-form.component';
 import { IndexProductComponent } from './components/clients/index-product/index-product.component';
 import { PedidosListComponent } from './components/admin/pedidos-list/pedidos-list.component';
+import { MisPedidosComponent } from './components/clients/mis-pedidos/mis-pedidos.component';
 
 const routes: Routes = [
   
@@ -55,6 +56,10 @@ const routes: Routes = [
   {
     path: 'pedidos',
     component: PedidosListComponent
+  },
+  {
+    path: 'mis-pedidos',
+    component: MisPedidosComponent
   }
 ];
 

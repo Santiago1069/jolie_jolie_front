@@ -10,7 +10,11 @@ export class ComprasService {
 
   constructor(private http: HttpClient) { }
 
-  getCompras(){
+  getCompras() {
     return this.http.get(`${this.API_URL}/compras`);
+  }
+
+  getMisCompras() {
+    return this.http.get(`${this.API_URL}/mis-compras`);
   }
 }

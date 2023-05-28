@@ -7,13 +7,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination'
 import { AppComponent } from 'src/app/app.component';
 import { CompradorNavigationComponent } from './navigation/navigation.component';
+import { MisPedidosComponent } from './mis-pedidos/mis-pedidos.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
 @NgModule({
   declarations: [
     IndexProductComponent,
-    CompradorNavigationComponent
+    CompradorNavigationComponent,
+    MisPedidosComponent
 
   ],
   imports: [
@@ -22,7 +25,8 @@ import { CompradorNavigationComponent } from './navigation/navigation.component'
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    Ng2SearchPipeModule
   ],
   exports: [IndexProductComponent]
 })
