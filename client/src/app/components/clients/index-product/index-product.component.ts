@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/Product';
 import { CartService } from 'src/app/services/cart.service';
+import { PaymentService } from 'src/app/services/payment.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -10,15 +11,16 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class IndexProductComponent implements OnInit {
 
-
   products: any = [];
+
+  valores: any = [];
 
   productsToCart: any = [];
   
   public page!: number;
 
 
-  constructor(private productService: ProductService, private cartService: CartService) { }
+  constructor(private productService: ProductService, private cartService: CartService, private paymentService: PaymentService) { }
 
   ngOnInit() {
     this.getProducts();
@@ -35,6 +37,19 @@ export class IndexProductComponent implements OnInit {
       }
     );
   }
+
+  payment(){
+    this.paymentService.createPayment().subscribe(
+      res => {
+        this.valores = res
+        window.location.href = this.valores.init_point
+      },
+      err => {
+        console.log(err)
+      }
+    );
+  }
+
 
 
   saveProductCart(product: Product){

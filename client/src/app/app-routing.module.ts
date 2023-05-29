@@ -8,6 +8,7 @@ import { UserFormComponent } from './components/admin/user-form/user-form.compon
 import { IndexProductComponent } from './components/clients/index-product/index-product.component';
 import { PedidosListComponent } from './components/admin/pedidos-list/pedidos-list.component';
 import { MisPedidosComponent } from './components/clients/mis-pedidos/mis-pedidos.component';
+import { PaymentSuccessComponent } from './components/clients/payment-success/payment-success.component';
 
 const routes: Routes = [
   

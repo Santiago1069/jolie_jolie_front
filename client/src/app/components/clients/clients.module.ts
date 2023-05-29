@@ -9,6 +9,7 @@ import { AppComponent } from 'src/app/app.component';
 import { CompradorNavigationComponent } from './navigation/navigation.component';
 import { MisPedidosComponent } from './mis-pedidos/mis-pedidos.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { PaymentSuccessComponent } from './payment-success/payment-success.component';
 
 
 
@@ -16,7 +17,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
   declarations: [
     IndexProductComponent,
     CompradorNavigationComponent,
-    MisPedidosComponent
+    MisPedidosComponent,
+    PaymentSuccessComponent
 
   ],
   imports: [
