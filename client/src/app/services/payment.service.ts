@@ -14,6 +14,13 @@ export class PaymentService {
     return this.http.get(`${this.API_URL}/payment`);
   }
 
+  successCompra() {
+    return this.http.get(`${this.API_URL}/success`);
+  }
+
+  failureCompra() {
+    return this.http.get(`${this.API_URL}/failure`);
+  }
 
 
 }

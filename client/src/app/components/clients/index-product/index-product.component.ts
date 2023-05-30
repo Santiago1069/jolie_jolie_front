@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartProduct } from 'src/app/models/CartProduct';
 import { Product } from 'src/app/models/Product';
 import { CartService } from 'src/app/services/cart.service';
 import { PaymentService } from 'src/app/services/payment.service';
@@ -15,22 +16,31 @@ export class IndexProductComponent implements OnInit {
 
   valores: any = [];
 
-  productsToCart: any = [];
-  
+  productsToCart!: CartProduct[];
+
+  precio_producto: number = 0;
+
+  total_pagar: number = 0;
+
+  cantidad: number = 1;
+
   public page!: number;
+
+
 
 
   constructor(private productService: ProductService, private cartService: CartService, private paymentService: PaymentService) { }
 
   ngOnInit() {
     this.getProducts();
+    this.productsToCart = this.cartService.getProductCart();
+    this.total_pagar = this.cartService.getTotalValue();
   }
 
   getProducts() {
     this.productService.allProductsActivate().subscribe(
       res => {
         this.products = res;
-        console.log(res);
       },
       err => {
         console.log(err)
@@ -38,7 +48,7 @@ export class IndexProductComponent implements OnInit {
     );
   }
 
-  payment(){
+  payment() {
     this.paymentService.createPayment().subscribe(
       res => {
         this.valores = res
@@ -51,16 +61,12 @@ export class IndexProductComponent implements OnInit {
   }
 
 
-
-  saveProductCart(product: Product){
-    console.log(product)
-
+  saveProductCart(product: Product) {
+    this.cartService.saveProductCart(product)
   }
 
-  deleteProductCart(id: number){
-    console.log(id)
+  deleteProductCart(id: number) {
+    this.cartService.deleteProductCart(id);
   }
-
-
-
+  
 }

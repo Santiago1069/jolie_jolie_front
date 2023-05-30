@@ -9,6 +9,7 @@ import { IndexProductComponent } from './components/clients/index-product/index-
 import { PedidosListComponent } from './components/admin/pedidos-list/pedidos-list.component';
 import { MisPedidosComponent } from './components/clients/mis-pedidos/mis-pedidos.component';
 import { PaymentSuccessComponent } from './components/clients/payment-success/payment-success.component';
+import { PaymentFailureComponent } from './components/clients/payment-failure/payment-failure.component';
 
 const routes: Routes = [
   
@@ -61,7 +62,16 @@ const routes: Routes = [
   {
     path: 'mis-pedidos',
     component: MisPedidosComponent
+  },
+  {
+    path: 'success',
+    component: PaymentSuccessComponent
+  },
+  {
+    path: 'failure',
+    component: PaymentFailureComponent
   }
+
 ];
 
 @NgModule({

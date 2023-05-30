@@ -10,6 +10,8 @@ import { CompradorNavigationComponent } from './navigation/navigation.component'
 import { MisPedidosComponent } from './mis-pedidos/mis-pedidos.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PaymentSuccessComponent } from './payment-success/payment-success.component';
+import { PaymentFailureComponent } from './payment-failure/payment-failure.component';
+import { CartService } from 'src/app/services/cart.service';
 
 
 
@@ -18,7 +20,8 @@ import { PaymentSuccessComponent } from './payment-success/payment-success.compo
     IndexProductComponent,
     CompradorNavigationComponent,
     MisPedidosComponent,
-    PaymentSuccessComponent
+    PaymentSuccessComponent,
+    PaymentFailureComponent
 
   ],
   imports: [
@@ -30,6 +33,7 @@ import { PaymentSuccessComponent } from './payment-success/payment-success.compo
     NgxPaginationModule,
     Ng2SearchPipeModule
   ],
+  providers: [ CartService],
   exports: [IndexProductComponent]
 })
 export class ClientsModule { }

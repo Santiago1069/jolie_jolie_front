@@ -31,35 +31,31 @@
 </div>
 <br>
 <div class="d-flex justify-content-center">
-    <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    <pagination-controls (pageChange)="page = $event" previousLabel="Anterior"
+        nextLabel="Siguiente"></pagination-controls>
 </div>
 
 
 <div class="offcanvas offcanvas-end" tabindex="-1" id="carrito" aria-labelledby="offcanvasNavbarLabel">
     <div class="offcanvas-header">
         <h3 class="offcanvas-title" id="offcanvasNavbarLabel">Carrito</h3>
-        <hr>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        <!-- <div class="media p-4 border-bottom mx-n4" *ngFor="let product of productsToCart"> -->
+        <div class="media p-4 mx-n4" *ngFor="let cart of productsToCart">
             <div class="media p-4 border-bottom mx-n4">
                 <div class="media-body pl-3">
                     <div class="card pr-2">
-                        <div class="d-flex justify-content-evenly">
-                            <img src="https://thenorthfaceco.vteximg.com.br/arquivos/ids/185714-861-1000/NF0A3FNTJK3--1-.jpg?v=637443321759530000" width="80" alt="Product thumb">
-                            <h4 class="font-size-sm mb-3"> Gorra Negro</h4>
+                        <div class="d-flex justify-content-evenly"><br>
+                            <img [src]="cart.product.imagen" width="80" alt="Product thumb"><br>
+                            <h4 class="font-size-sm mb-3">{{cart.product.nombre_producto}}</h4>
                         </div>
                         <ul class="list-unstyled font-size-xs mt-n2 mb-2">
-                            <li class="mb-0"><span class="text-muted">Color:</span>Negro </li>
-                            <li class="mb-0"><span class="text-muted">Precio:</span> $25000 Unidad</li>
+                            <li class="mb-0"><span class="text-muted">Color:</span>{{cart.product.color}}</li>
+                            <li class="mb-0" (ngModel)="precio_producto == cart.product.precio"><span
+                                    class="text-muted">Precio:</span> ${{cart.product.precio}} Unidad</li>
                         </ul>
-                        <div class="d-flex align-items-center">
-                            <input type="number" class="form-control form-control-sm bg-light mr-3"
-                                style="width: 4.5rem;" value="1">
-                            <div class="text-nowrap"><strong class="text-danger"></strong></div>
-                        </div>
-                        <button class="btn btn-outline-danger" (click)="deleteProductCart(1)"> 
+                        <button class="btn btn-outline-danger" (click)="deleteProductCart(cart.product.id_producto)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-trash3" viewBox="0 0 16 16">
                                 <path
@@ -67,15 +63,15 @@
                             </svg>
                         </button>
                     </div><br>
-                    <div class="cs-offcanvas-cap flex-column border-top">
-                        <div class="d-flex align-items-center justify-content-between mb-3 pb-1">
-                            <span class="text-muted mr-2">Total a pagar:</span>
-                            <span class="h5 mb-0">$25000</span>
-                        </div>
-                    </div>
-                    <button (click)="payment()" class="btn btn-primary btn-lg btn-block">Ir a pagar</button>
                 </div>
             </div>
-        <!-- </div> -->
+        </div>
+        <div class="cs-offcanvas-cap flex-column border-top">
+            <div class="d-flex align-items-center justify-content-between mb-3 pb-1">
+                <span class="text-muted mr-2">Total a pagar:</span>
+                <span class="h5 mb-0"> {{total_pagar}}</span>
+            </div>
+        </div>
+        <button (click)="payment()" class="btn btn-primary btn-lg btn-block">Ir a pagar</button>
     </div>
 </div>
