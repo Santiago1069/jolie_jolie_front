@@ -10,6 +10,8 @@ import { PedidosListComponent } from './components/admin/pedidos-list/pedidos-li
 import { MisPedidosComponent } from './components/clients/mis-pedidos/mis-pedidos.component';
 import { PaymentSuccessComponent } from './components/clients/payment-success/payment-success.component';
 import { PaymentFailureComponent } from './components/clients/payment-failure/payment-failure.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
 
 const routes: Routes = [
   
@@ -70,6 +72,14 @@ const routes: Routes = [
   {
     path: 'failure',
     component: PaymentFailureComponent
+  },
+  {
+    path:'forgotPassword',
+    component: ForgotPasswordComponent
+  },
+  {
+    path:'recoverPassword',
+    component: RecoverPasswordComponent
   }
 
 ];

@@ -17,7 +17,7 @@ export class PaymentSuccessComponent implements OnInit {
   successCompra(){
     Swal.fire({
       title: 'Excelente',
-      text: "Compra realizada correctamente!",
+      text: "Compra realizada correctamente, revisa tu correo para visualizar la descripcion de la compra",
       icon: 'success',
       confirmButtonColor: '#3085d6',
       confirmButtonText: 'Ir al inicio',

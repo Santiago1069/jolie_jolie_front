@@ -27,7 +27,7 @@
                                     {{document.descripcion_tipo_documento}}</option>
                             </select>
                             <div class="invalid-feedback">
-                                Seleccione una opcion vailda.
+                                Por favor, seleccione un tipo de documento
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -51,7 +51,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+
+                        <div class="col-md-6" *ngIf="edit == false">
                             <label for="nombre_contrasena" class="form-label"><strong>Contraseña:</strong></label>
                             <input type="password" class="form-control" id="contrasena" name="contrasena"
                                 [(ngModel)]="user.password" autocomplete="off" required>
@@ -59,6 +60,7 @@
                                 Por favor, ingresa una contraseña.
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <label for="nombre_celular" class="form-label"><strong>Celular:</strong></label>
                             <input type="text" class="form-control" id="celular" name="celular" autocomplete="off"
@@ -77,10 +79,10 @@
                                     {{profile.descripcion_perfiles}}</option>
                             </select>
                             <div class="invalid-feedback">
-                                Seleccione una opcion vailda.
+                                Por favor, selecciona un perfil para el usuario
                             </div>
                         </div><br>
-                        <div class="d-grid gap-2 col-6 mx-auto">
+                        <div class="d-grid gap-2 mx-auto">
                             <button class="btn btn-primary" type="submit"
                                 (click)="edit ? updateProduct () : createUser()">Guardar</button>
                         </div>

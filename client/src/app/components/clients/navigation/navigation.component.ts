@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/Product';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { CartService } from 'src/app/services/cart.service';
 import Swal from 'sweetalert2';
 
 
@@ -16,11 +17,13 @@ export class CompradorNavigationComponent implements OnInit {
 
   users: any = [];
 
-  constructor(private router: Router, private authenticationService: AuthenticationService) { }
+  totalProductos: any = 0;
+
+  constructor(private router: Router, private authenticationService: AuthenticationService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.getUser();
-
+    this.getTotalProducts();
   }
 
   getUser(){
@@ -44,9 +47,9 @@ export class CompradorNavigationComponent implements OnInit {
     this.router.navigate(['/loginUser'])
   }
 
-  saveProductCart(product: Product, cantidad: number){
-
-
+  getTotalProducts(){
+    this.totalProductos = this.cartService.totalProducts()
+    console.log(this.totalProductos)
   }
 
 }

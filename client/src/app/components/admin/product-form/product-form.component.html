@@ -4,57 +4,85 @@
     <div class="col-md-4 offset-md-2">
         <div class="card">
             <div class="card-body">
-                <form>
+                <form class="row g-3 needs-validation" novalidate>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="nombre_del_producto"><strong>Nombre del producto:</strong></label>
                             <input type="text" class="form-control" id="nombre_producto" name="nombre_producto"
-                                [(ngModel)]="product.nombre_producto" autocomplete="off">
+                                [(ngModel)]="product.nombre_producto" autocomplete="off" required>
+                            <div class="invalid-feedback">
+                                Por favor, ingresa el nombre del producto
+                            </div>
                         </div>
                         <div class="form-group"><br>
                             <label for="nombre_texto"><strong>Color:</strong></label>
                             <input type="text" class="form-control" id="color" name="color" [(ngModel)]="product.color"
-                                autocomplete="off">
+                                autocomplete="off" required>
+                            <div class="invalid-feedback">
+                                Por favor, ingresa el color del producto
+                            </div>
                         </div>
                         <div class="form-group"><br>
                             <label for="nombre_precio"><strong>Precio:</strong></label>
                             <input type="number" class="form-control" id="precio" name="precio"
-                                [(ngModel)]="product.precio" autocomplete="off">
+                                [(ngModel)]="product.precio" autocomplete="off" required>
+                            <div class="invalid-feedback">
+                                Por favor, ingresa el precio del producto
+                            </div>
                         </div>
                         <div class="form-group"><br>
                             <label for="nombre_imagen"><strong>Imagen:</strong></label>
                             <input type="text" class="form-control" id="imagen" name="imagen"
-                                [(ngModel)]="product.imagen" autocomplete="off">
+                                [(ngModel)]="product.imagen" autocomplete="off" required>
+                            <div class="invalid-feedback">
+                                Por favor, ingresa la imagen del producto
+                            </div>
                         </div>
                         <div class="form-group"><br>
                             <label for="nombre_cantidad"><strong>Cantidad:</strong></label>
                             <input type="number" class="form-control" id="cantidad" name="cantidad"
-                                [(ngModel)]="product.cantidad" autocomplete="off">
+                                [(ngModel)]="product.cantidad" autocomplete="off" required>
+                                <div class="invalid-feedback">
+                                    Por favor, ingresa la cantidad de productos
+                                </div>
                         </div>
                         <div class="form-group"><br>
                             <label for="nombre_categoria"><strong>Categorias:</strong></label>
-                            <select class="form-select" id="id_categoria" name="id_categoria" [(ngModel)]="product.id_categoria">
+                            <select class="form-select" id="id_categoria" name="id_categoria" required
+                                [(ngModel)]="product.id_categoria">
                                 <option selected value="">Seleccione una opcion</option>
-                                <option *ngFor="let categoria of categories" [value]="categoria.id_categoria">{{categoria.categoria_descripcion}}</option>
+                                <option *ngFor="let categoria of categories" [value]="categoria.id_categoria">
+                                    {{categoria.categoria_descripcion}}</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Por favor, ingresa la categoria del producto
+                            </div>
                         </div>
                         <div class="form-group"><br>
                             <label for="nombre_descripcion_producto"><strong>Descripcion del producto:</strong></label>
                             <textarea style="overflow:auto" type="text" class="form-control" id="descripcion_producto"
-                                name="descripcion_producto" [(ngModel)]="product.descripcion_producto" rows="2"
-                                autocomplete="off"></textarea>
+                                name="descripcion_producto" [(ngModel)]="product.descripcion_producto" rows="2" required
+                                autocomplete="off" ></textarea>
+                                <div class="invalid-feedback">
+                                    Por favor, ingresa la descripcion del producto
+                                </div>
                         </div>
                         <div class="form-group"><br>
                             <label for="nombre_categoria"><strong>Estado:</strong></label>
-                            <select class="form-select" id="id_categoria" name="id_categoria" [(ngModel)]="product.estado">
+                            <select class="form-select" id="id_categoria" name="id_categoria" required
+                                [(ngModel)]="product.estado">
                                 <option selected value="">Seleccione una opcion</option>
                                 <option selected value="Activo">Activo</option>
                                 <option selected value="Inactivo">Inactivo</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Por favor, ingresa el estado del producto
+                            </div>
                         </div>
                         <br>
                         <div class="form-group d-flex justify-content-end">
-                            <button type="submit" class="btn btn-success" (click)="edit ? updateProduct() : saveProduct()">Guardar</button>
+                            <button type="submit" class="btn btn-primary"
+                                (click)="edit ? updateProduct() : saveProduct()">Guardar</button>
                         </div>
                     </div>
                 </form>
@@ -66,6 +94,7 @@
 
     <div class="col-md-4">
         <div class="card card-body text-center">
+            <h5 class="card-title"><strong>Pre visualizacion del producto</strong></h5>
             <img class="card-img-top"
                 [src]="product.imagen == '' ? '/assets/img/imagen_no_disponible.jpg' : product.imagen"
                 alt="imagen del producto" width="346.17" height="346.17">
@@ -76,11 +105,11 @@
                     encuentra disponible la descripcion del producto' : product.descripcion_producto}} </p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>Precio: </strong> {{product.precio == null ? 'No se encuentra
+                <li class="list-group-item"><strong>Precio: </strong> {{product.precio == null || product.precio == 0 ? 'No se encuentra
                     disponible el precio del producto' : '$' + product.precio + ' Unidad'}}</li>
                 <li class="list-group-item"><strong>Color: </strong> {{product.color == '' ? 'No se encuentra disponible
                     el color del producto' : product.color}}</li>
-                <li class="list-group-item"><strong>Cantidad: </strong> {{product.cantidad == null ? 'No se encuentra
+                <li class="list-group-item"><strong>Cantidad: </strong> {{product.cantidad == null || product.cantidad == 0 ? 'No se encuentra
                     disponible la cantidad del producto' : product.cantidad + ' Disponibles'}}</li>
             </ul>
         </div>

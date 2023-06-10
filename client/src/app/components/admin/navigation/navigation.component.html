@@ -1,6 +1,6 @@
 <nav class="navbar bg-light fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="admin/products">
+        <a class="navbar-brand" routerLink="/admin/products">
             <img src="./../../../../assets/img/logo_jolie_jolie.png" alt="logo de la empresa" width="100" height="50">
         </a>
         <div>
@@ -44,6 +44,15 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" routerLink="/pedidos" href="#">Lista de pedidos</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Configuracion
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" routerLink="/recoverPassword" href="#">Cambiar contraseña</a></li>
                         </ul>
                     </li><br>
                     <button class="btn btn-outline-danger" (click)="cerrarSesion()" type="submit">Cerrar sesion</button>

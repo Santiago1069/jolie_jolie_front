@@ -10,13 +10,17 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/admin/product-list/product-list.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { AddTokenInterceptor } from './services/add-token.interceptor';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    ForgotPasswordComponent,
+    RecoverPasswordComponent
 
   ],
   imports: [

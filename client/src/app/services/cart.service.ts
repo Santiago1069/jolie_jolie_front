@@ -49,5 +49,9 @@ export class CartService {
     }
     throw new Error("total no encontrado");
   }
+
+  totalProducts(){
+    return this.cart.length
+  }
   
 }

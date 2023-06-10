@@ -12,11 +12,11 @@ import { ProductService } from '../../../services/product.service';
 })
 export class ProductFormComponent implements OnInit {
 
-   product: Product = {
+  product: Product = {
     id_producto: 0,
     nombre_producto: '',
     color: '',
-    precio: 0 ,
+    precio: 0,
     imagen: '',
     descripcion_producto: '',
     cantidad: 0,
@@ -31,16 +31,20 @@ export class ProductFormComponent implements OnInit {
   constructor(private productService: ProductService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.validacionDeCampos();
     this.getOneProduct();
     this.getCategories();
   }
 
-  getOneProduct(){
+  getOneProduct() {
     const params = this.activatedRoute.snapshot.params;
-    if(params["id"]){
+    if (params["id"]) {
       this.productService.getOneProduct(params['id']).subscribe(
         res => {
           this.product = res;
+          console.log('this.product');
+          console.log(this.product);
+
           this.edit = true;
         },
         err => console.log(err)
@@ -60,7 +64,13 @@ export class ProductFormComponent implements OnInit {
   }
 
 
-  saveProduct(){
+  saveProduct() {
+
+    if (this.product.nombre_producto == '' || this.product.color == '' || this.product.imagen == '' || this.product.id_categoria == 0 || this.product.descripcion_producto == '' || this.product.estado == 0) {
+      return
+    }
+
+
     this.productService.createProduct(this.product).subscribe(
       res => {
         console.log(res);
@@ -75,7 +85,7 @@ export class ProductFormComponent implements OnInit {
     )
   }
 
-  updateProduct(){
+  updateProduct() {
     this.productService.updateProduct(this.product.id_producto, this.product).subscribe(
       res => {
         this.router.navigate(['/admin/products']);
@@ -87,6 +97,25 @@ export class ProductFormComponent implements OnInit {
       },
       err => console.log(err)
     )
+  }
+
+  validacionDeCampos() {
+    (() => {
+
+      'use strict'
+      const forms: NodeListOf<HTMLFormElement> = document.querySelectorAll('.needs-validation')
+
+      Array.from(forms).forEach((form: HTMLFormElement) => {
+        form.addEventListener('submit', (event: Event) => {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })()
   }
 
 }
