@@ -12,6 +12,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PaymentSuccessComponent } from './payment-success/payment-success.component';
 import { PaymentFailureComponent } from './payment-failure/payment-failure.component';
 import { CartService } from 'src/app/services/cart.service';
+import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -21,7 +22,8 @@ import { CartService } from 'src/app/services/cart.service';
     CompradorNavigationComponent,
     MisPedidosComponent,
     PaymentSuccessComponent,
-    PaymentFailureComponent
+    PaymentFailureComponent,
+    ContactComponent
 
   ],
   imports: [

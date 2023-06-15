@@ -26,7 +26,7 @@
                 <td>{{ user.nombre }}</td>
                 <td>{{ user.correo }}</td>
                 <td>{{ user.celular }}</td>
-                <td> {{ user.id_perfiles_fk }}</td>
+                <td> {{ user.perfil }}</td>
                 <td>
                     <button type="button" class="btn btn-outline-danger" data-bs-toggle="tooltip"
                         data-bs-placement="left" title="Eliminar" (click)="deleteUser(user.identificacion)">
@@ -54,6 +54,6 @@
     </table>
 </div>
 
-<div class="pagination">
+<div class="d-flex justify-content-center">
     <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
 </div>

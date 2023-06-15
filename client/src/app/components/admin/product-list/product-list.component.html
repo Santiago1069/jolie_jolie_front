@@ -7,13 +7,15 @@
     <div class="container">
         <div class="d-flex justify-content-between">
             <form class="d-flex" role="search">
-                <input class="form-control me-2" type="text" placeholder="Buscar" aria-label="Search" name="search" autocomplete="off" [(ngModel)]="searchText">
+                <input class="form-control me-2" type="text" placeholder="Buscar" aria-label="Search" name="search"
+                    autocomplete="off" [(ngModel)]="searchText">
             </form>
-            <button type="button" class="btn btn-outline-success" routerLink="/product/add" >Agregar producto</button>
+            <button type="button" class="btn btn-outline-success" routerLink="/product/add">Agregar producto</button>
         </div>
     </div>
     <br><br>
-    <div class="col-md-4" *ngFor="let product of products | paginate: {itemsPerPage: 3, currentPage: page} | filter:searchText">
+    <div class="col-md-4"
+        *ngFor="let product of products | paginate: {itemsPerPage: 3, currentPage: page} | filter:searchText">
         <div class="card" width="350" height="700">
             <img class="card-img-top" [src]="product.imagen" alt="imagen del producto" width="346.17" height="346.17">
             <div class="card-body">
@@ -35,5 +37,6 @@
 </div>
 <br>
 <div class="d-flex justify-content-center">
-    <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    <pagination-controls (pageChange)="page = $event" previousLabel="Anterior"
+        nextLabel="Siguiente"></pagination-controls>
 </div>

@@ -15,6 +15,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { AppComponent } from 'src/app/app.component';
 import { AdminNavigationComponent } from './navigation/navigation.component';
 import { PedidosListComponent } from './pedidos-list/pedidos-list.component';
+import { MensajesListComponent } from './mensajes-list/mensajes-list.component';
 
 
 
@@ -26,7 +27,8 @@ import { PedidosListComponent } from './pedidos-list/pedidos-list.component';
     UserFormComponent,
     UserListComponent,
     AdminNavigationComponent,
-    PedidosListComponent
+    PedidosListComponent,
+    MensajesListComponent
   ],
   imports: [
     CommonModule,

@@ -57,9 +57,18 @@ export class AuthenticationComponent implements OnInit {
 
 
   createUser() {
+
+    var checkbox = document.getElementById("check") as HTMLInputElement;
+
     if (this.user.identificacion == '' || this.user.nombre == '' || this.user.correo == '' || this.user.password == '' || this.user.celular == 0) {
       return
     }
+
+    if(!checkbox.checked){
+      return
+    }
+
+
 
     this.authenticationService.createUser(this.user).subscribe(
       res => {

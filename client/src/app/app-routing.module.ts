@@ -12,6 +12,8 @@ import { PaymentSuccessComponent } from './components/clients/payment-success/pa
 import { PaymentFailureComponent } from './components/clients/payment-failure/payment-failure.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
+import { ContactComponent } from './components/clients/contact/contact.component';
+import { MensajesListComponent } from './components/admin/mensajes-list/mensajes-list.component';
 
 const routes: Routes = [
   
@@ -80,6 +82,14 @@ const routes: Routes = [
   {
     path:'recoverPassword',
     component: RecoverPasswordComponent
+  },
+  {
+    path: 'contactanos',
+    component: ContactComponent
+  },
+  {
+    path: 'mensajes',
+    component: MensajesListComponent
   }
 
 ];
