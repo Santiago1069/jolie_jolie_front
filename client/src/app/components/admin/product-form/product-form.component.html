@@ -49,7 +49,7 @@
                         <div class="form-group"><br>
                             <label for="nombre_categoria"><strong>Categorias:</strong></label>
                             <select class="form-select" id="id_categoria" name="id_categoria" required
-                                [(ngModel)]="product.id_categoria">
+                            [(ngModel)]="product.id_categoria">
                                 <option selected value="">Seleccione una opcion</option>
                                 <option *ngFor="let categoria of categories" [value]="categoria.id_categoria">
                                     {{categoria.categoria_descripcion}}</option>
@@ -69,7 +69,7 @@
                         </div>
                         <div class="form-group"><br>
                             <label for="nombre_categoria"><strong>Estado:</strong></label>
-                            <select class="form-select" id="id_categoria" name="id_categoria" required
+                            <select class="form-select" id="estado" name="estado" required
                                 [(ngModel)]="product.estado">
                                 <option selected value="">Seleccione una opcion</option>
                                 <option selected value="Activo">Activo</option>

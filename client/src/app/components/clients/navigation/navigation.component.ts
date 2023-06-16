@@ -17,7 +17,7 @@ export class CompradorNavigationComponent implements OnInit {
 
   users: any = [];
 
-  totalProductos: any = 0;
+  totalProductos: number = 0;
 
   constructor(private router: Router, private authenticationService: AuthenticationService, private cartService: CartService) { }
 
@@ -48,8 +48,7 @@ export class CompradorNavigationComponent implements OnInit {
   }
 
   getTotalProducts(){
-    this.totalProductos = this.cartService.totalProducts()
-    console.log(this.totalProductos)
+    return this.totalProductos = this.cartService.totalProducts();
   }
 
 }

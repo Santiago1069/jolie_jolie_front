@@ -7,6 +7,8 @@ import { Product } from '../models/Product';
 })
 export class CartService {
 
+  totalProductosCart: number = 0
+
   cart: CartProduct[]
 
   constructor() {
@@ -19,6 +21,7 @@ export class CartService {
       product: product
     }
     this.cart.push(cartProduct);
+    this.totalProductosCart = this.totalProductosCart + 1;
   }
 
   getProductCart() {
@@ -28,11 +31,12 @@ export class CartService {
   deleteProductCart(id_producto: number) {
     const cartProductToDeleteIndex = this.searchProductIndex(id_producto);
     this.cart.splice(cartProductToDeleteIndex, 1);
+    this.totalProductosCart = this.totalProductosCart - 1;
   }
 
   searchProductIndex(id_producto: number): number {
     for (let i = 0; i < this.cart.length; i++) {
-      if(id_producto === this.cart[i].product.id_producto){
+      if (id_producto === this.cart[i].product.id_producto) {
         return i;
       }
     }
@@ -43,15 +47,14 @@ export class CartService {
   getTotalValue(): number {
     var total_pagar = 0;
     for (let i = 0; i < this.cart.length; i++) {
-      
       total_pagar = total_pagar + this.cart[i].product.precio
       return total_pagar;
     }
     throw new Error("total no encontrado");
   }
 
-  totalProducts(){
-    return this.cart.length
+  totalProducts() {
+    return this.totalProductosCart;
   }
-  
+
 }

@@ -34,7 +34,6 @@ export class IndexProductComponent implements OnInit {
   ngOnInit() {
     this.getProducts();
     this.productsToCart = this.cartService.getProductCart();
-    this.total_pagar = this.cartService.getTotalValue();
   }
 
   getProducts() {
@@ -62,11 +61,17 @@ export class IndexProductComponent implements OnInit {
 
 
   saveProductCart(product: Product) {
-    this.cartService.saveProductCart(product)
+    this.cartService.saveProductCart(product);
+    this.total_pagar = this.total_pagar + this.cartService.getTotalValue();
+
   }
 
   deleteProductCart(id: number) {
     this.cartService.deleteProductCart(id);
+    if (this.cartService.cart.length < 1) {
+      this.total_pagar = 0;
+    }
+    this.total_pagar = this.total_pagar - this.cartService.getTotalValue();
   }
-  
+
 }

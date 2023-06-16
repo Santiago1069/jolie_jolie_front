@@ -12,7 +12,7 @@ import { ProductService } from '../../../services/product.service';
 })
 export class ProductFormComponent implements OnInit {
 
-  product: Product = {
+  product: any = {
     id_producto: 0,
     nombre_producto: '',
     color: '',
@@ -21,7 +21,8 @@ export class ProductFormComponent implements OnInit {
     descripcion_producto: '',
     cantidad: 0,
     estado: 0,
-    id_categoria: 0
+    id_categoria: 0,
+    descripcion_categoria: ''
   }
 
   categories: any = [];
@@ -32,8 +33,9 @@ export class ProductFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.validacionDeCampos();
-    this.getOneProduct();
     this.getCategories();
+    this.getOneProduct();
+   
   }
 
   getOneProduct() {
@@ -43,7 +45,7 @@ export class ProductFormComponent implements OnInit {
         res => {
           this.product = res;
           console.log('this.product');
-          console.log(this.product);
+          console.log(this.product.descripcion_categoria);
 
           this.edit = true;
         },
