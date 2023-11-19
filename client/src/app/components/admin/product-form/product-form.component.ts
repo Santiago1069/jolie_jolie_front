@@ -45,7 +45,7 @@ export class ProductFormComponent implements OnInit {
         res => {
           this.product = res;
           console.log('this.product');
-          console.log(this.product.descripcion_categoria);
+          console.log(res);
 
           this.edit = true;
         },
@@ -69,9 +69,8 @@ export class ProductFormComponent implements OnInit {
   saveProduct() {
 
     if (this.product.nombre_producto == '' || this.product.color == '' || this.product.imagen == '' || this.product.id_categoria == 0 || this.product.descripcion_producto == '' || this.product.estado == 0) {
-      return
-    }
-
+      return}
+   console.log(this.product.estadoProduct);
 
     this.productService.createProduct(this.product).subscribe(
       res => {
@@ -88,6 +87,7 @@ export class ProductFormComponent implements OnInit {
   }
 
   updateProduct() {
+   console.log(this.product.estado);
     this.productService.updateProduct(this.product.id_producto, this.product).subscribe(
       res => {
         this.router.navigate(['/admin/products']);

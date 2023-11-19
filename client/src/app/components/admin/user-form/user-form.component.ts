@@ -20,8 +20,8 @@ export class UserFormComponent implements OnInit {
     correo: '',
     password: '',
     celular: 0,
-    id_perfiles_fk: 0,
-    id_tipo_documento_fk: 0
+    fk_id_perfiles: 0,
+    fk_id_tipo_documento: 0
   }
 
   edit: boolean = false;

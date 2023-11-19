@@ -36,7 +36,7 @@ export class RecoverPasswordComponent implements OnInit {
           confirmButtonText: 'Continuar'
         }).then((result) => {
           if (result.isConfirmed) {
-            if(res.id_perfiles_fk == 1){
+            if(res.fk_id_perfiles == 1){
               this.router.navigate(['/admin/products']);
             }else{
               this.router.navigate(['/index-product']);

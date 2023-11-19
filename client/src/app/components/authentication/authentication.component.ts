@@ -22,8 +22,8 @@ export class AuthenticationComponent implements OnInit {
     correo: '',
     password: '',
     celular: 0,
-    id_perfiles_fk: 2,
-    id_tipo_documento_fk: 0
+    fk_id_perfiles: 2,
+    fk_id_tipo_documento: 0
   }
 
   loginObjeto: Login = {
@@ -48,6 +48,7 @@ export class AuthenticationComponent implements OnInit {
     this.authenticationService.getTipeDocument().subscribe(
       res => {
         this.documents = res;
+        console.log(this.documents);
       },
       err => {
         console.log(err)
@@ -67,9 +68,6 @@ export class AuthenticationComponent implements OnInit {
     if(!checkbox.checked){
       return
     }
-
-
-
     this.authenticationService.createUser(this.user).subscribe(
       res => {
         Swal.fire({
@@ -104,13 +102,11 @@ export class AuthenticationComponent implements OnInit {
     this.authenticationService.profile().subscribe(
       res => {
         this.users = res;
-        console.log('this.users.id_perfiles_fk');
-        console.log(this.users.id_perfiles_fk);
-        
-        if (this.users.id_perfiles_fk === 1) {
+        console.log(typeof(this.users.fk_id_tipo_documento));
+        if (this.users.fk_id_perfiles=== 1) {
           this.router.navigate(['/admin/products']);
         } else {
-          this.router.navigate(['/index-product']);
+          this.router.navigate(['/admin/products']);
         }
 
       },

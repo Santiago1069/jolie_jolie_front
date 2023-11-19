@@ -78,7 +78,7 @@
                                 <label for="nombre_tipo_documento" class="form-label"><strong>Tipo de
                                         documento:</strong></label>
                                 <select class="form-select" id="tipo_documento" name="tipo_documento" required
-                                    [(ngModel)]="user.id_tipo_documento_fk">
+                                    [(ngModel)]="user.fk_id_tipo_documento">
                                     <option selected value="">Seleccione una opcion</option>
                                     <option *ngFor="let document of documents" [value]="document.id_tipo_documento">
                                         {{document.descripcion_tipo_documento}}</option>
@@ -99,7 +99,7 @@
                             <div class="col-md-6">
                                 <label for="nombre_email" class="form-label"><strong>Email:</strong></label>
                                 <div class="input-group has-validation">
-                                    <span class="input-group-text" id="nombre_arroa">@</span>
+                                    <span class="input-group-text" id="nombre_arroa"></span>
                                     <input type="email" [(ngModel)]="user.correo" class="form-control" id="email"
                                         name="email" aria-describedby="nombre_arroa" autocomplete="off" required>
                                     <div class="invalid-feedback">

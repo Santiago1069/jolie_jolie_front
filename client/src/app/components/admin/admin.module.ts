@@ -16,6 +16,7 @@ import { AppComponent } from 'src/app/app.component';
 import { AdminNavigationComponent } from './navigation/navigation.component';
 import { PedidosListComponent } from './pedidos-list/pedidos-list.component';
 import { MensajesListComponent } from './mensajes-list/mensajes-list.component';
+import { VentasAcordionComponent } from './ventas-acordion/ventas-acordion.component';
 
 
 
@@ -28,7 +29,8 @@ import { MensajesListComponent } from './mensajes-list/mensajes-list.component';
     UserListComponent,
     AdminNavigationComponent,
     PedidosListComponent,
-    MensajesListComponent
+    MensajesListComponent,
+    VentasAcordionComponent
   ],
   imports: [
     CommonModule,

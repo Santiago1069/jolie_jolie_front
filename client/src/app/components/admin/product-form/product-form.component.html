@@ -70,10 +70,10 @@
                         <div class="form-group"><br>
                             <label for="nombre_categoria"><strong>Estado:</strong></label>
                             <select class="form-select" id="estado" name="estado" required
-                                [(ngModel)]="product.estado">
-                                <option selected value="">Seleccione una opcion</option>
-                                <option selected value="Activo">Activo</option>
-                                <option selected value="Inactivo">Inactivo</option>
+                            [(ngModel)] ="product.estado">
+                                <option value="" disabled selected>Seleccione una opcion</option>
+                                <option [value]="1">Activo</option>
+                                <option [value]="0">Inactivo</option>
                             </select>
                             <div class="invalid-feedback">
                                 Por favor, ingresa el estado del producto
@@ -99,18 +99,13 @@
                 [src]="product.imagen == '' ? '/assets/img/imagen_no_disponible.jpg' : product.imagen"
                 alt="imagen del producto" width="346.17" height="346.17">
             <div class="card-body">
-                <h5 class="card-title"><strong>{{product.nombre_producto == '' ? 'No se encuentra disponible el nombre
-                        del producto' : product.nombre_producto}}</strong></h5>
-                <p class="card-text"> <strong>Descripcion: </strong>{{product.descripcion_producto == '' ? 'No se
-                    encuentra disponible la descripcion del producto' : product.descripcion_producto}} </p>
+                <h5 class="card-title"><strong>{{product.nombre_producto == '' ? 'No se encuentra disponible el nombre del producto' : product.nombre_producto}}</strong></h5>
+                <p class="card-text"> <strong>Descripcion: </strong>{{product.descripcion_producto == '' ? 'No se encuentra disponible la descripcion del producto' : product.descripcion_producto}} </p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>Precio: </strong> {{product.precio == null || product.precio == 0 ? 'No se encuentra
-                    disponible el precio del producto' : '$' + product.precio + ' Unidad'}}</li>
-                <li class="list-group-item"><strong>Color: </strong> {{product.color == '' ? 'No se encuentra disponible
-                    el color del producto' : product.color}}</li>
-                <li class="list-group-item"><strong>Cantidad: </strong> {{product.cantidad == null || product.cantidad == 0 ? 'No se encuentra
-                    disponible la cantidad del producto' : product.cantidad + ' Disponibles'}}</li>
+                <li class="list-group-item"><strong>Precio: </strong> {{product.precio == null || product.precio == 0 ? 'No se encuentra disponible el precio del producto' : '$' + product.precio + ' Unidad'}}</li>
+                <li class="list-group-item"><strong>Color: </strong> {{product.color == '' ? 'No se encuentra disponible el color del producto' : product.color}}</li>
+                <li class="list-group-item"><strong>Cantidad: </strong> {{product.cantidad == null || product.cantidad == 0 ? 'No se encuentra disponible la cantidad del producto' : product.cantidad + ' Disponibles'}}</li>
             </ul>
         </div>
     </div>
