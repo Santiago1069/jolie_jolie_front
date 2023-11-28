@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 import { User } from '../models/User';
 import { Login } from '../models/login';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -13,7 +14,7 @@ import { Login } from '../models/login';
 export class AuthenticationService {
 
 
-  API_URL = 'http://localhost:3000';
+  API_URL = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 

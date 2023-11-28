@@ -3,10 +3,11 @@ import Swal from 'sweetalert2';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
-
+import { CookieService } from 'ngx-cookie-service';
 import { User } from 'src/app/models/User';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Login } from 'src/app/models/login';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -25,6 +26,7 @@ export class AuthenticationComponent implements OnInit {
     id_perfiles_fk: '2',
     id_tipo_documento_fk: '0'
   }
+  correo: string = "";
 
   loginObjeto: Login = {
     correo: '',
@@ -36,13 +38,23 @@ export class AuthenticationComponent implements OnInit {
   users: any = [];
 
 
-  constructor(private authenticationService: AuthenticationService, private router: Router) { }
+  constructor(private authenticationService: AuthenticationService, private router: Router, private route: ActivatedRoute, private cookieService: CookieService) {
+  }
 
   ngOnInit(): void {
+    this.recuperarDatos();
     this.validacionDeCampos();
     this.getTipeDocument();
   }
-
+  recuperarDatos(): void {
+    const datosRecuperados = JSON.parse(this.cookieService.get('misDatos') || '{}');
+    if (datosRecuperados['user'] != undefined) {
+      this.loginObjeto.correo = datosRecuperados['user']
+      this.loginObjeto.password = datosRecuperados['pwd']
+      this.login();
+    }
+    this.cookieService.delete('misDatos');
+  }
 
   getTipeDocument() {
     this.authenticationService.getTipeDocument().subscribe(
@@ -65,7 +77,7 @@ export class AuthenticationComponent implements OnInit {
       return
     }
 
-    if(!checkbox.checked){
+    if (!checkbox.checked) {
       return
     }
     this.authenticationService.createUser(this.user).subscribe(
@@ -102,11 +114,10 @@ export class AuthenticationComponent implements OnInit {
     this.authenticationService.profile().subscribe(
       res => {
         this.users = res;
-        console.log(typeof(this.users.fk_id_tipo_documento));
-        if (this.users.fk_id_perfiles=== 1) {
+        if (this.users.id_perfiles_fk === 1) {
           this.router.navigate(['/admin/products']);
         } else {
-          this.router.navigate(['/admin/products']);
+          window.location.href = environment.clientUrl
         }
 
       },
@@ -116,26 +127,14 @@ export class AuthenticationComponent implements OnInit {
     )
   }
 
-
-
   login() {
     if (this.loginObjeto.correo == '' || this.loginObjeto.password == '') {
       return
     }
-
-
     this.authenticationService.login(this.loginObjeto).subscribe({
       next: (token) => {
-        Swal.fire(
-          'Muy bien',
-          'Inicio de sesion exitoso!!',
-          'success'
-        )
-
-        localStorage.setItem('token', token as string)
-
+        localStorage.setItem('tocken', token as string)
         this.getUser();
-
       },
       error: (e: HttpErrorResponse) => {
         if (e.error.msg) {

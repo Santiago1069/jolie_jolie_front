@@ -23,7 +23,8 @@ export class UserFormComponent implements OnInit {
     id_perfiles_fk: "",
     id_tipo_documento_fk: ''
   }
-  arroba:string='@'
+  arroba=
+  '';
   edit: boolean = false;
 
   profiles: any = [];
