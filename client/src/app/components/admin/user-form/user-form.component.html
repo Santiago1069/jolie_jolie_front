@@ -21,7 +21,7 @@
                             <label for="nombre_tipo_documento" class="form-label"><strong>Tipo de
                                     documento:</strong></label>
                             <select class="form-select" id="tipo_documento" name="tipo_documento" required
-                                [(ngModel)]="user.id_tipo_documento_fk">
+                                [(ngModel)]="user.fk_id_tipo_documento">
                                 <option selected value="">Seleccione una opcion</option>
                                 <option *ngFor="let document of documents" [value]="document.id_tipo_documento">
                                     {{document.descripcion_tipo_documento}}</option>
@@ -73,7 +73,7 @@
                             <label for="nombre_perfil_usuario" class="form-label"><strong>Perfil del
                                     usuario:</strong></label>
                             <select class="form-select" id="perfil" name="perfil" required
-                                [(ngModel)]="user.id_perfiles_fk">
+                                [(ngModel)]="user.fk_id_perfiles">
                                 <option selected value="">Seleccione una opcion</option>
                                 <option *ngFor="let profile of profiles" [value]="profile.id_perfiles">
                                     {{profile.descripcion_perfiles}}</option>

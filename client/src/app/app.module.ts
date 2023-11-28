@@ -21,7 +21,6 @@ import { RecoverPasswordComponent } from './components/recover-password/recover-
     AuthenticationComponent,
     ForgotPasswordComponent,
     RecoverPasswordComponent
-
   ],
   imports: [
     BrowserModule,

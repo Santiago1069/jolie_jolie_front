@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ComprasService } from 'src/app/services/compras.service';
+import { VentasAcordionComponent } from '../ventas-acordion/ventas-acordion.component';
 
 @Component({
   selector: 'app-pedidos-list',
@@ -25,7 +26,7 @@ export class PedidosListComponent implements OnInit {
       res => {
         this.compras = res;
         console.log(this.compras);
-        
+
       },
       err => {
         console.log(err)
