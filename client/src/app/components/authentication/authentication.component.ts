@@ -22,8 +22,8 @@ export class AuthenticationComponent implements OnInit {
     correo: '',
     password: '',
     celular: 0,
-    fk_id_perfiles: 2,
-    fk_id_tipo_documento: 0
+    id_perfiles_fk: '2',
+    id_tipo_documento_fk: '0'
   }
 
   loginObjeto: Login = {

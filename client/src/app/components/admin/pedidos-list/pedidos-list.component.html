@@ -33,13 +33,18 @@
         <td>${{compra.valor_total}}</td>
         <td>{{compra.metodopago}}</td>
         <td><div class="card-body d-flex justify-content-around">
-          <a  class="btn btn-primary">Editar</a>
-          <a class="btn btn-danger" >Eliminar</a>
+          <div class="onoffswitch">
+            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+            <label class="onoffswitch-label" for="myonoffswitch">
+            <div class="onoffswitch-inner"></div>
+            <div class="onoffswitch-switch"></div>
+            </label>
+            </div>
       </div></td>
       </tr>
       <tr>
       </tr>
-      <tr class="collapse accordion-collapse" *ngIf="compra.producto.length>0 &&compra.producto"
+      <tr class="collapse accordion-collapse" *ngIf="compra.producto.length>0"
         [id]="'r'+compra.id_compra" data-bs-parent=".table">
         <td colspan="8">
           <table class="text-center">
