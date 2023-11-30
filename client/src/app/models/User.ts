@@ -5,7 +5,7 @@ export interface User {
     correo: string;
     password: string;
     celular: number;
-    fk_id_perfiles: number;
-    fk_id_tipo_documento: number;
+    id_perfiles_fk: string;
+    id_tipo_documento_fk: string;
 
 }

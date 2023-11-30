@@ -21,7 +21,7 @@
                             <label for="nombre_tipo_documento" class="form-label"><strong>Tipo de
                                     documento:</strong></label>
                             <select class="form-select" id="tipo_documento" name="tipo_documento" required
-                                [(ngModel)]="user.fk_id_tipo_documento">
+                                [(ngModel)]="user.id_tipo_documento_fk">
                                 <option selected value="">Seleccione una opcion</option>
                                 <option *ngFor="let document of documents" [value]="document.id_tipo_documento">
                                     {{document.descripcion_tipo_documento}}</option>
@@ -42,7 +42,7 @@
                         <div class="col-md-6">
                             <label for="nombre_email" class="form-label"><strong>Email:</strong></label>
                             <div class="input-group has-validation">
-                                <span class="input-group-text" id="nombre_arroa">@</span>
+                                <span class="input-group-text" id="nombre_arroa" >{{arroba.toString()}}</span>
                                 <input type="email" class="form-control" id="email" name="email"
                                     [(ngModel)]="user.correo" aria-describedby="nombre_arroa" autocomplete="off"
                                     required>
@@ -73,7 +73,7 @@
                             <label for="nombre_perfil_usuario" class="form-label"><strong>Perfil del
                                     usuario:</strong></label>
                             <select class="form-select" id="perfil" name="perfil" required
-                                [(ngModel)]="user.fk_id_perfiles">
+                                [(ngModel)]="user.id_perfiles_fk">
                                 <option selected value="">Seleccione una opcion</option>
                                 <option *ngFor="let profile of profiles" [value]="profile.id_perfiles">
                                     {{profile.descripcion_perfiles}}</option>

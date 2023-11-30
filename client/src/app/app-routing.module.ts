@@ -39,6 +39,10 @@ const routes: Routes = [
     component: AuthenticationComponent
   },
   {
+    path: 'loginUser/:user&:token',
+    component: AuthenticationComponent
+  },
+  {
     path: 'users',
     component: UserListComponent
   },
