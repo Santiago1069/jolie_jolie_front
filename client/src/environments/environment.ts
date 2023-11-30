@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'https://api-jolie-jolie.onrender.com',
+  thisUrl: 'http://localhost:4200',
+  clientUrl:'http://localhost:49340'
 };
 
 /*
