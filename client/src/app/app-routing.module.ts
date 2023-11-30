@@ -5,18 +5,13 @@ import { ProductFormComponent } from './components/admin/product-form/product-fo
 import { AuthenticationComponent } from './components/authentication/authentication.component'
 import { UserListComponent } from './components/admin/user-list/user-list.component';
 import { UserFormComponent } from './components/admin/user-form/user-form.component';
-import { IndexProductComponent } from './components/clients/index-product/index-product.component';
 import { PedidosListComponent } from './components/admin/pedidos-list/pedidos-list.component';
-import { MisPedidosComponent } from './components/clients/mis-pedidos/mis-pedidos.component';
-import { PaymentSuccessComponent } from './components/clients/payment-success/payment-success.component';
-import { PaymentFailureComponent } from './components/clients/payment-failure/payment-failure.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
-import { ContactComponent } from './components/clients/contact/contact.component';
 import { MensajesListComponent } from './components/admin/mensajes-list/mensajes-list.component';
 
 const routes: Routes = [
-  
+
   {
     path: '',
     redirectTo: 'loginUser',
@@ -60,24 +55,8 @@ const routes: Routes = [
     component: UserFormComponent
   },
   {
-    path: 'index-product',
-    component: IndexProductComponent
-  },
-  {
     path: 'pedidos',
     component: PedidosListComponent
-  },
-  {
-    path: 'mis-pedidos',
-    component: MisPedidosComponent
-  },
-  {
-    path: 'success',
-    component: PaymentSuccessComponent
-  },
-  {
-    path: 'failure',
-    component: PaymentFailureComponent
   },
   {
     path:'forgotPassword',
@@ -86,10 +65,6 @@ const routes: Routes = [
   {
     path:'recoverPassword',
     component: RecoverPasswordComponent
-  },
-  {
-    path: 'contactanos',
-    component: ContactComponent
   },
   {
     path: 'mensajes',

@@ -1,6 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://api.example.com',
-  thisUrl: 'http://localhost:4200',
+  apiUrl: 'https://api-jolie-jolie.onrender.com',
   clientUrl:'http://localhost:49340'
 };

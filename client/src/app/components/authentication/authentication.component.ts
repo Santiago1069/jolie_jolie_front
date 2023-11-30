@@ -3,11 +3,13 @@ import Swal from 'sweetalert2';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
-import { CookieService } from 'ngx-cookie-service';
 import { User } from 'src/app/models/User';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Login } from 'src/app/models/login';
 import { environment } from 'src/environments/environment';
+import { Injectable, Inject } from '@angular/core';
+
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
@@ -38,7 +40,8 @@ export class AuthenticationComponent implements OnInit {
   users: any = [];
 
 
-  constructor(private authenticationService: AuthenticationService, private router: Router, private route: ActivatedRoute, private cookieService: CookieService) {
+
+  constructor(private authenticationService: AuthenticationService, private router: Router, private route: ActivatedRoute, @Inject(CookieService) private CookieService: CookieService) {
   }
 
   ngOnInit(): void {
@@ -47,28 +50,25 @@ export class AuthenticationComponent implements OnInit {
     this.getTipeDocument();
   }
   recuperarDatos(): void {
-    const datosRecuperados = JSON.parse(this.cookieService.get('misDatos') || '{}');
+    const datosRecuperados = JSON.parse(this.CookieService.get('misDatos') || '{}');
     if (datosRecuperados['user'] != undefined) {
       this.loginObjeto.correo = datosRecuperados['user']
       this.loginObjeto.password = datosRecuperados['pwd']
       this.login();
     }
-    this.cookieService.delete('misDatos');
+    this.CookieService.delete('misDatos');
   }
 
   getTipeDocument() {
     this.authenticationService.getTipeDocument().subscribe(
       res => {
         this.documents = res;
-        console.log(this.documents);
       },
       err => {
         console.log(err)
       }
     )
   }
-
-
   createUser() {
 
     var checkbox = document.getElementById("check") as HTMLInputElement;
@@ -115,9 +115,10 @@ export class AuthenticationComponent implements OnInit {
       res => {
         this.users = res;
         if (this.users.id_perfiles_fk === 1) {
+
           this.router.navigate(['/admin/products']);
         } else {
-          window.location.href = environment.clientUrl
+          this.router.navigate(['/admin/products']);
         }
 
       },
@@ -131,6 +132,7 @@ export class AuthenticationComponent implements OnInit {
     if (this.loginObjeto.correo == '' || this.loginObjeto.password == '') {
       return
     }
+
     this.authenticationService.login(this.loginObjeto).subscribe({
       next: (token) => {
         localStorage.setItem('tocken', token as string)
