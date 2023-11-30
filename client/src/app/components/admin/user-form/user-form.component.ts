@@ -20,10 +20,11 @@ export class UserFormComponent implements OnInit {
     correo: '',
     password: '',
     celular: 0,
-    fk_id_perfiles: 0,
-    fk_id_tipo_documento: 0
+    id_perfiles_fk: "",
+    id_tipo_documento_fk: ''
   }
-
+  arroba=
+  '';
   edit: boolean = false;
 
   profiles: any = [];
@@ -64,6 +65,7 @@ export class UserFormComponent implements OnInit {
 
     this.userServices.createUser(this.user).subscribe(
       res => {
+        console.log(this.user);
         Swal.fire({
           title: 'Muy bien',
           text: "El usuario '" + this.user.nombre + "' ha sido creado correctamente!",
@@ -97,6 +99,7 @@ export class UserFormComponent implements OnInit {
     this.userServices.updateUser(this.user.identificacion, this.user).subscribe(
       res => {
         this.router.navigate(['/users']);
+
         Swal.fire(
           'Actualizado',
           'El usuario ha sido actualizado correctamente!',

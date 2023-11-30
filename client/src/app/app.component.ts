@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AddTokenInterceptor } from './services/add-token.interceptor';
 
 @Component({
   selector: 'app-root',

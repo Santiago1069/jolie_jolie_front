@@ -3,7 +3,7 @@
 <br><br><br>
 
 
-<div class="row">
+<div class="row este">
     <div class="container">
         <div class="d-flex justify-content-between">
             <form class="d-flex" role="search">
@@ -15,7 +15,7 @@
     </div>
     <br><br>
     <div class="col-md-4"
-        *ngFor="let product of products | paginate: {itemsPerPage: 9, currentPage: page} | filter:searchText">
+        *ngFor="let product of products | paginate: {itemsPerPage: 3, currentPage: page} | filter:searchText">
         <div class="card" width="350" height="700">
             <img class="card-img-top" [src]="product.imagen" alt="imagen del producto" width="346.17" height="346.17">
             <div class="card-body">
