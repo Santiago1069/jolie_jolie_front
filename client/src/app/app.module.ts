@@ -12,6 +12,7 @@ import { AuthenticationComponent } from './components/authentication/authenticat
 import { AddTokenInterceptor } from './services/add-token.interceptor';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -31,7 +32,8 @@ import { RecoverPasswordComponent } from './components/recover-password/recover-
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true},
-    ProductListComponent
+    ProductListComponent,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

@@ -115,9 +115,10 @@ export class AuthenticationComponent implements OnInit {
       res => {
         this.users = res;
         if (this.users.id_perfiles_fk === 1) {
+
           this.router.navigate(['/admin/products']);
         } else {
-          window.location.href = environment.clientUrl
+          this.router.navigate(['/admin/products']);
         }
 
       },
